@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+#define days 7
+
+int main() {
+    int rainfall[days];
+    int t_rainfall = 0, no_rainfall = 0;
+
+     printf("enter rainfall of 7 days in mm:\n");
+    for (int i = 0; i < days; i++) {
+        printf("Day %d: ", i + 1);
+        scanf("%d", &rainfall[i]);
+           t_rainfall += rainfall[i];
+
+       
+        if (rainfall[i] == 0) {
+            no_rainfall = i + 1; 
+        }
+    }
+
+    printf("total rainfall for the week: %d mm\n", t_rainfall);
+
+   if (no_rainfall > 0) {
+        printf("day with no rainfall:%d\n", no_rainfall);
+    } else {
+        printf("no days with no rainfall.\n");
+    }
+
+    return 0;
+}

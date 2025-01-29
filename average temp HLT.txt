@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+#define days 7
+
+float calculateaverage(float sum) {
+    return sum / days;
+}
+
+void HLT(float temp, int day, float *max, float *min, int *highday, int *lowday) {
+    if (temp > *max) {
+        *max = temp;
+        *highday = day;
+    }
+    if (temp < *min) {
+        *min = temp;
+        *lowday = day;
+    }
+}
+
+int main() {
+    float temp, sum = 0, max = -1e9, min = 1e9;
+    int highday = 1, lowday = 1;
+    
+    for (int i = 1; i <= days; i++) {
+        printf("Enter tempe of Day %d: ", i);
+        scanf("%f", &temp);
+        sum += temp;
+        HLT(temp, i, &max, &min, &highday, &lowday);
+    }
+    
+    printf("Average Temperature: %.2f\n", calculateaverage(sum));
+    printf("Highest Temperature: %.2f\n", max);
+    printf("Lowest Temperature: %.2f\n", min);
+    
+    return 0;
+}

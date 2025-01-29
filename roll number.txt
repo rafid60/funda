@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char rollNumber[20], name[50];
+    int attempts = 0;
+    
+    printf("Enter your name: ");
+    scanf("%s", name);
+    
+    while (attempts < 3) {
+        printf("Enter your roll number: ");
+        scanf("%s", rollNumber);
+        
+        if (strcmp(rollNumber, "12345") == 0) {
+            printf("%s, access provided.\n", name);
+            return 0;
+        }
+        
+        attempts++;
+        printf("Incorrect roll number. %d attempt(s) left.\n", 3 - attempts);
+    }
+    
+    printf("Too many incorrect attempts. You have been locked out.\n");
+    return 1;
+}

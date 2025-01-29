@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#define t_attempt 3
+#define real_name "rafid" 
+
+
+void loginSys() {
+    char name[50];
+    int attempt=0;
+    
+  
+    while (attempt < t_attempt) {
+        printf("Enter your name: ");
+        scanf("%s", name);
+        
+        if (strcmp(name, real_name) == 0) {
+            printf("Login successful! Welcome, %s.\n", name);
+            return;
+            
+        } else {
+            attempt++;
+            printf("Incorrect name. You have %d attempt left\n", t_attempt-attempt);
+            
+            
+        }
+        
+        
+    }
+    
+    
+    printf("too many incorrect attempts. you locked \n");
+}
+
+int main() {
+    loginSys();
+    return 0;
+}

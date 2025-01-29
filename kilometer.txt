@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    float distance[7], total = 0, ministance;
+    int minday = 0;
+    
+    printf("Enter distances traveled for 7 days (in km):\n");
+    for (int i = 0; i < 7; i++) {
+        printf("Day %d: ", i + 1);
+        scanf("%f", &distances[i]);
+        total += distances[i];
+    }
+    
+    mindistance = distances[0];
+    for (int i = 1; i < 7; i++) {
+        if (distances[i] < mindistance) {
+            mindistance = distances[i];
+            minDay = i;
+        }
+    }
+    
+    printf("total distance covered: %.2f km\n", total);
+    printf("shortest distance traveled on day %d: %.2f km\n", minday + 1, mindistance);
+    
+    return 0;
+}
